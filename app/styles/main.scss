@@ -1,9 +1,47 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700|Open+Sans+Condensed:700);
 @import "variables";
 
-@mixins($color) {
-	width: 25%
+@mixin bulbSection($image, $color: #444) {
+	float: left;
+	width: 25%;
+
+	padding-top: 110px;
+
+	color: #FFF;
+	text-align: center;
+
+	background-image: url($image);
+	background-color: $color;
+    background-repeat: no-repeat;
+	background-position: center 5px;
+    background-size: 63px 100px;
 }
 
-body {
-	color: $red;
+#mainContainer {
+	margin: 0 auto;
+	width: 800px;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+
+	background-color: #444;
+
+}
+
+#mainContainer .bulb {
+	&.inc {
+		@include bulbSection(#{$icon-inc}, $red);
+	}
+	&.hal {
+		@include bulbSection($icon-hal, $orange);
+	}
+	&.cfl {
+		@include bulbSection($icon-cfl, $yellow);
+	}
+	&.led {
+		@include bulbSection($icon-led, $green);
+	}
+
 }
