@@ -1,0 +1,9 @@
+@import "variables";
+
+@mixins($color) {
+	width: 25%
+}
+
+body {
+	color: $red;
+}
