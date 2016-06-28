@@ -1,7 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700|Open+Sans+Condensed:700);
-/* Colors */
-/* Images */
-#mainContainer {
+body > div:first-of-type {
   margin: 0 auto;
   width: 800px;
   color: #FFF;
@@ -11,42 +9,46 @@
   font-weight: 300;
   line-height: 24px;
   background-color: #444; }
+  body > div:first-of-type .bulb.inc {
+    float: left;
+    width: 25%;
+    padding-top: 110px;
+    background-image: url("../images/bulb_inc.svg");
+    background-color: #BA2D2D;
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    background-size: 63px 100px; }
+  body > div:first-of-type .bulb.hal {
+    float: left;
+    width: 25%;
+    padding-top: 110px;
+    background-image: url("../images/bulb_hal.svg");
+    background-color: #DE6615;
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    background-size: 63px 100px; }
+  body > div:first-of-type .bulb.cfl {
+    float: left;
+    width: 25%;
+    padding-top: 110px;
+    background-image: url("../images/bulb_cfl.svg");
+    background-color: #EFC20F;
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    background-size: 63px 100px; }
+  body > div:first-of-type .bulb.led {
+    float: left;
+    width: 25%;
+    padding-top: 110px;
+    background-image: url("../images/bulb_led.svg");
+    background-color: #36B23C;
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    background-size: 63px 100px; }
 
-#mainContainer .bulb.inc {
+form > div {
   float: left;
-  width: 25%;
-  padding-top: 110px;
-  background-image: url(../images/bulb_inc.svg);
-  background-color: #BA2D2D;
-  background-repeat: no-repeat;
-  background-position: center 5px;
-  background-size: 63px 100px; }
-#mainContainer .bulb.hal {
-  float: left;
-  width: 25%;
-  padding-top: 110px;
-  background-image: url("../images/bulb_hal.svg");
-  background-color: #DE6615;
-  background-repeat: no-repeat;
-  background-position: center 5px;
-  background-size: 63px 100px; }
-#mainContainer .bulb.cfl {
-  float: left;
-  width: 25%;
-  padding-top: 110px;
-  background-image: url("../images/bulb_cfl.svg");
-  background-color: #EFC20F;
-  background-repeat: no-repeat;
-  background-position: center 5px;
-  background-size: 63px 100px; }
-#mainContainer .bulb.led {
-  float: left;
-  width: 25%;
-  padding-top: 110px;
-  background-image: url("../images/bulb_led.svg");
-  background-color: #36B23C;
-  background-repeat: no-repeat;
-  background-position: center 5px;
-  background-size: 63px 100px; }
+  width: 33.33%;
+  color: #000; }
 
 /*# sourceMappingURL=main.css.map */

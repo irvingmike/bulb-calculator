@@ -2,50 +2,42 @@
 @import "variables";
 
 @mixin bulbSection($image, $color: #444) {
-	float: left;
-	width: 25%;
+  float: left;
+  width: 25%;
 
-	padding-top: 110px;
+  padding-top: 110px;
 
-	background-image: url($image);
-	background-color: $color;
-    background-repeat: no-repeat;
-	background-position: center 5px;
-    background-size: 63px 100px;
+  background-image: url($image);
+  background-color: $color;
+  background-repeat: no-repeat;
+  background-position: center 5px;
+  background-size: 63px 100px;
 }
 
-%formSection {
-	float: left;
-	width: 33%;
+body > div:first-of-type {
+  margin: 0 auto;
+  width: 800px;
+
+  color: #FFF;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+
+  background-color: $bkcolor;
+
+  & .bulb {
+    &.inc { @include bulbSection($icon-inc, $red); }
+    &.hal { @include bulbSection($icon-hal, $orange); }
+    &.cfl { @include bulbSection($icon-cfl, $yellow); }
+    &.led { @include bulbSection($icon-led, $green); }
+  }
+
 }
 
-#mainContainer {
-	margin: 0 auto;
-	width: 800px;
-
-	color: #FFF;
-	text-align: center;
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 24px;
-
-	background-color: #444;
-
-}
-
-#mainContainer .bulb {
-	&.inc {
-		@include bulbSection(#{$icon-inc}, $red);
-	}
-	&.hal {
-		@include bulbSection($icon-hal, $orange);
-	}
-	&.cfl {
-		@include bulbSection($icon-cfl, $yellow);
-	}
-	&.led {
-		@include bulbSection($icon-led, $green);
-	}
-
+form > div {
+  float: left;
+  width: 33.33%;
+  color: #000;
 }
