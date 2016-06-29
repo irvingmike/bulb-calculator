@@ -14,7 +14,7 @@
   background-size: 63px 100px;
 }
 
-body > div:first-of-type {
+lightbulb-app > div:first-of-type {
   margin: 0 auto;
   width: 800px;
 
@@ -25,13 +25,51 @@ body > div:first-of-type {
   font-weight: 300;
   line-height: 24px;
 
-  background-color: $bkcolor;
+  & section {
 
-  & .bulb {
-    &.inc { @include bulbSection($icon-inc, $red); }
-    &.hal { @include bulbSection($icon-hal, $orange); }
-    &.cfl { @include bulbSection($icon-cfl, $yellow); }
-    &.led { @include bulbSection($icon-led, $green); }
+    div {
+      background-color: rgba(0, 0, 0, .15);
+      padding: 5px 0px;
+
+    h4 {
+      margin: 0 0 5px 0;
+
+      font-family: "Open Sans Condensed", sans-serif;
+      font-size: .8em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    > p {
+      margin: 0;
+      font-size: 1.5em;
+      font-weight: 700;
+
+      &:after {
+        content: "w";
+      }
+
+      &:last-child {
+        font-size: 1em;
+        font-weight: 300;
+
+        &:before {
+          content: "$";
+        }
+
+        &:after {
+          content: " per year";
+          color: rgba(255, 255, 255, .5);
+        }
+      }
+    }
+  }
+
+  &#inc { @include bulbSection($icon-inc, $red); }
+  &#hal { @include bulbSection($icon-hal, $orange); }
+  &#cfl { @include bulbSection($icon-cfl, $yellow); }
+  &#led { @include bulbSection($icon-led, $green); }
+
   }
 
 }
@@ -39,5 +77,49 @@ body > div:first-of-type {
 form > div {
   float: left;
   width: 33.33%;
-  color: #000;
+  height: 70px;
+
+  padding: 20px 0px;
+
+  color: rgba($formText, .7);
+  background-color: $formBkgnd;
+
+  h4 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 0 0 -5px 0;
+  }
+
+  > p {
+    margin: 0;
+    color: rgba($formText, .5);
+    font-size: .8em;
+
+    br {
+      display: none;
+    }
+  }
+
+  input[type=number] {
+    width: 50px;
+    font-size: 1em;
+    text-align: left;
+  }
+
+  select {
+    font-size: 1em;
+
+    padding: 3px 30px 3px 5px;
+
+    background: #FFFFFF url(../images/icons_arrows.svg) no-repeat right 6px;
+    background-size: 30px 20px;
+
+    -webkit-appearance: none;
+       -moz-appearance: none;
+        -ms-appearance: none;
+         -o-appearance: none;
+            appearance: none;
+  }
+
 }
+

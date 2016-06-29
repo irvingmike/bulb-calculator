@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700|Open+Sans+Condensed:700);
-body > div:first-of-type {
+lightbulb-app > div:first-of-type {
   margin: 0 auto;
   width: 800px;
   color: #FFF;
@@ -7,9 +7,31 @@ body > div:first-of-type {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 300;
-  line-height: 24px;
-  background-color: #444; }
-  body > div:first-of-type .bulb.inc {
+  line-height: 24px; }
+  lightbulb-app > div:first-of-type section div {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 5px 0px; }
+    lightbulb-app > div:first-of-type section div h4 {
+      margin: 0 0 5px 0;
+      font-family: "Open Sans Condensed", sans-serif;
+      font-size: .8em;
+      letter-spacing: 1px;
+      text-transform: uppercase; }
+    lightbulb-app > div:first-of-type section div > p {
+      margin: 0;
+      font-size: 1.5em;
+      font-weight: 700; }
+      lightbulb-app > div:first-of-type section div > p:after {
+        content: "w"; }
+      lightbulb-app > div:first-of-type section div > p:last-child {
+        font-size: 1em;
+        font-weight: 300; }
+        lightbulb-app > div:first-of-type section div > p:last-child:before {
+          content: "$"; }
+        lightbulb-app > div:first-of-type section div > p:last-child:after {
+          content: " per year";
+          color: rgba(255, 255, 255, 0.5); }
+  lightbulb-app > div:first-of-type section#inc {
     float: left;
     width: 25%;
     padding-top: 110px;
@@ -18,7 +40,7 @@ body > div:first-of-type {
     background-repeat: no-repeat;
     background-position: center 5px;
     background-size: 63px 100px; }
-  body > div:first-of-type .bulb.hal {
+  lightbulb-app > div:first-of-type section#hal {
     float: left;
     width: 25%;
     padding-top: 110px;
@@ -27,7 +49,7 @@ body > div:first-of-type {
     background-repeat: no-repeat;
     background-position: center 5px;
     background-size: 63px 100px; }
-  body > div:first-of-type .bulb.cfl {
+  lightbulb-app > div:first-of-type section#cfl {
     float: left;
     width: 25%;
     padding-top: 110px;
@@ -36,7 +58,7 @@ body > div:first-of-type {
     background-repeat: no-repeat;
     background-position: center 5px;
     background-size: 63px 100px; }
-  body > div:first-of-type .bulb.led {
+  lightbulb-app > div:first-of-type section#led {
     float: left;
     width: 25%;
     padding-top: 110px;
@@ -49,6 +71,33 @@ body > div:first-of-type {
 form > div {
   float: left;
   width: 33.33%;
-  color: #000; }
+  height: 70px;
+  padding: 20px 0px;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: #000; }
+  form > div h4 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 0 0 -5px 0; }
+  form > div > p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .8em; }
+    form > div > p br {
+      display: none; }
+  form > div input[type=number] {
+    width: 50px;
+    font-size: 1em;
+    text-align: left; }
+  form > div select {
+    font-size: 1em;
+    padding: 3px 30px 3px 5px;
+    background: #FFFFFF url(../images/icons_arrows.svg) no-repeat right 6px;
+    background-size: 30px 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none; }
 
 /*# sourceMappingURL=main.css.map */

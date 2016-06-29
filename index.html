@@ -2,50 +2,24 @@
 <html>
 
 <head>
-	<title>Lightbulb Calc Tool</title>
-	<link rel="stylesheet" type="text/css" href="app/styles/main.css">
+  <title>Lightbulb Calc Tool</title>
+
+  <!-- Angular 2 Dependancies -->
+  <script src="node_modules/es6-shim/es6-shim.js"></script>
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  <script src="node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="app/styles/main.css">
+
+  <script src="systemjs.config.js"></script>
+  <script>
+    System.import('app').catch(function(err){ console.error(err); });
+  </script>
 </head>
 
 <body>
-	<div>
-		<section class="bulb inc">
-			<h4>Incandescent</h4>
-			<p>Lorem</p>
-			<p>Lorem</p>
-		</section>
-		<section class="bulb hal">
-			<h4>Halogen</h4>
-			<p>Lorem</p>
-			<p>Lorem</p>
-		</section>
-		<section class="bulb cfl">
-			<h4>CFL</h4>
-			<p>Lorem</p>
-			<p>Lorem</p>
-		</section>
-		<section class="bulb led">
-			<h4>LED</h4>
-			<p>Lorem</p>
-			<p>Lorem</p>
-		</section>
-		<form>
-			<div>
-				<h4>Lumens</h4>
-				<p>Brightness <br />of Bulb</p>
-				<select></select>
-			</div>
-			<div>
-				<h4>kWh</h4>
-				<p>Kilowatt-<br />hour Cost</p>
-				<input type="number" />
-			</div>
-			<div>
-				<h4>Hours</h4>
-				<p>Usage <br />per Day</p>
-				<input type="number" />
-			</div>
-		</form>
-	</d	iv>
+  <lightbulb-app></lightbulb-app>
 </body>
 
 </html>
