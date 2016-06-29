@@ -71,7 +71,7 @@ lightbulb-app > div:first-of-type {
 form > div {
   float: left;
   width: 33.33%;
-  height: 70px;
+  height: 75px;
   padding: 20px 0px;
   color: rgba(255, 255, 255, 0.7);
   background-color: #000; }
@@ -81,6 +81,7 @@ form > div {
     margin: 0 0 -5px 0; }
   form > div > p {
     margin: 0;
+    margin-bottom: 5px;
     color: rgba(255, 255, 255, 0.5);
     font-size: .8em; }
     form > div > p br {

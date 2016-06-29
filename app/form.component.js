@@ -9,20 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
-var form_component_1 = require("./form.component");
-var LightbulbApp = (function () {
-    function LightbulbApp() {
+var FormComponent = (function () {
+    function FormComponent() {
     }
-    LightbulbApp = __decorate([
+    FormComponent = __decorate([
         core_1.Component({
-            selector: 'lightbulb-app',
-            templateUrl: 'app/LightbulbApp.html',
-            directives: [form_component_1.FormComponent],
+            selector: 'lightbulb-form',
+            templateUrl: 'app/LightbulbForm.html',
         }), 
         __metadata('design:paramtypes', [])
-    ], LightbulbApp);
-    return LightbulbApp;
+    ], FormComponent);
+    return FormComponent;
 }());
-platform_browser_dynamic_1.bootstrap(LightbulbApp);
-//# sourceMappingURL=app.js.map
+exports.FormComponent = FormComponent;
+//# sourceMappingURL=form.component.js.map
