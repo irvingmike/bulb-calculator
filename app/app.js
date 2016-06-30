@@ -11,41 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var common_1 = require('@angular/common');
 var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
-var Lightbulb = (function () {
-    function Lightbulb() {
-        console.log('In bulb item');
-    }
-    Lightbulb.prototype.calculateWattage = function () {
-        return 42.0;
-    };
-    Lightbulb.prototype.calculateCost = function () {
-        return 19.72;
-    };
-    Lightbulb = __decorate([
-        core_1.Component({
-            selector: 'lightbulb',
-            inputs: ['type', 'name', 'conversionRate', 'imageUrl'],
-            template: "\n   <section id=\"{{ type }}\">\n    <div>\n      <h4>{{ name }}</h4>\n      <p>{{ calculateWattage() }}</p>\n      <p>{{ calculateCost() }}</p>\n    </div>\n  </section>\n  "
-        }), 
-        __metadata('design:paramtypes', [])
-    ], Lightbulb);
-    return Lightbulb;
-}());
-var FormComponent = (function () {
-    function FormComponent() {
-    }
-    FormComponent = __decorate([
-        core_1.Component({
-            selector: 'lightbulb-form',
-            template: "\n    <form>\n      <div>\n        <h4>Lumens</h4>\n        <p>Brightness <br />of Bulb</p>\n        <select>\n        </select>\n      </div>\n      <div>\n        <h4>kWh</h4>\n        <p>Kilowatt-<br />hour Cost</p>\n        <input type=\"number\" value=\"10\" />\n      </div>\n      <div>\n        <h4>Hours</h4>\n        <p>Usage <br />per Day</p>\n        <input type=\"number\" value=\"10\" />\n      </div>\n    </form>\n  ",
-            directives: [common_1.FORM_DIRECTIVES]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], FormComponent);
-    return FormComponent;
-}());
-var LightbulbApp = (function () {
-    function LightbulbApp() {
+var CurrentSettings = (function () {
+    function CurrentSettings() {
         this.bulbTypes = [
             { shortName: 'inc',
                 name: 'Incandescent',
@@ -65,14 +32,63 @@ var LightbulbApp = (function () {
                 imageUrl: '../images/bulb_led.svg' }
         ];
         this.lumenOptions = [375, 600, 900, 1600];
+        this.lumens = 600;
+        this.cost = 12;
+        this.hours = 3;
+    }
+    return CurrentSettings;
+}());
+var Lightbulb = (function () {
+    function Lightbulb() {
+        this.totalDays = 365;
+        console.log('In bulb item');
+    }
+    Lightbulb.prototype.calculateWattage = function () {
+        return (this.conversionRate * this.currentSettings.lumens);
+    };
+    Lightbulb.prototype.calculateCost = function () {
+        var totalHours = this.currentSettings.hours * this.totalDays;
+        var cost = this.currentSettings.cost / 100;
+        return ((this.calculateWattage() * totalHours) / 1000) * cost;
+    };
+    Lightbulb = __decorate([
+        core_1.Component({
+            selector: 'lightbulb',
+            inputs: ['type', 'name', 'conversionRate', 'imageUrl', 'currentSettings'],
+            template: "\n   <section id=\"{{ type }}\">\n    <div>\n      <h4>{{ name }}</h4>\n      <p>{{ calculateWattage().toFixed(1) }}</p>\n      <p>{{ calculateCost().toFixed(2) }}</p>\n    </div>\n  </section>\n  "
+        }), 
+        __metadata('design:paramtypes', [])
+    ], Lightbulb);
+    return Lightbulb;
+}());
+var FormComponent = (function () {
+    function FormComponent() {
+    }
+    FormComponent.prototype.onCostChange = function (cost) {
+        console.log(cost);
+    };
+    FormComponent = __decorate([
+        core_1.Component({
+            selector: 'lightbulb-form',
+            inputs: ['currentSettings'],
+            template: "\n    <form>\n      <div>\n        <h4>Lumens</h4>\n        <p>Brightness <br />of Bulb</p>\n        <select [(ngModel)]=\"currentSettings.lumens\">\n          <option *ngFor=\"let lumenOption of currentSettings.lumenOptions\"\n              [value]=\"lumenOption\">\n            {{ lumenOption }}\n          </option>\n        </select>\n      </div>\n      <div>\n        <h4>kWh</h4>\n        <p>Kilowatt-<br />hour Cost</p>\n        <input type=\"number\" [(ngModel)]=\"currentSettings.cost\" /> cents\n      </div>\n      <div>\n        <h4>Hours</h4>\n        <p>Usage <br />per Day</p>\n        <input type=\"number\" [(ngModel)]=\"currentSettings.hours\" />\n      </div>\n    </form>\n  ",
+            directives: [common_1.FORM_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], FormComponent);
+    return FormComponent;
+}());
+var LightbulbApp = (function () {
+    function LightbulbApp() {
         console.log('In app');
         console.log(this.bulbTypes);
+        this.currentSettings = new CurrentSettings();
     }
     LightbulbApp = __decorate([
         core_1.Component({
             selector: 'lightbulb-app',
             //templateUrl: 'app/LightbulbApp.html',
-            template: "\n    <div>\n      <lightbulb *ngFor=\"let bulbInfo of bulbTypes\"\n        [type]=\"bulbInfo.shortName\"\n        [name]=\"bulbInfo.name\"\n        [conversionRate]=\"bulbInfo.conversionRate\"\n        [imageUrl]=\"bulbInfo.imageUrl\">\n      </lightbulb>\n      <lightbulb-form></lightbulb-form>\n    </div>\n  ",
+            template: "\n    <div>\n      <lightbulb *ngFor=\"let bulbInfo of currentSettings.bulbTypes\"\n        [type]=\"bulbInfo.shortName\"\n        [name]=\"bulbInfo.name\"\n        [conversionRate]=\"bulbInfo.conversionRate\"\n        [imageUrl]=\"bulbInfo.imageUrl\"\n        [currentSettings]=\"currentSettings\"\n        >\n      </lightbulb>\n      <lightbulb-form [currentSettings]=\"currentSettings\"></lightbulb-form>\n    </div>\n  ",
             outputs: ['bulbTypes'],
             directives: [FormComponent, Lightbulb]
         }), 
