@@ -102,14 +102,7 @@ class Lightbulb {
   directives: [FORM_DIRECTIVES]
 })
 
-class FormComponent {
-
-  currentSettings: CurrentSettings;
-
-  onCostChange(cost) {
-    console.log(cost);
-  }
-}
+class FormComponent { currentSettings: CurrentSettings; }
 
 @Component ({
   selector: 'lightbulb-app',

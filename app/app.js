@@ -64,9 +64,6 @@ var Lightbulb = (function () {
 var FormComponent = (function () {
     function FormComponent() {
     }
-    FormComponent.prototype.onCostChange = function (cost) {
-        console.log(cost);
-    };
     FormComponent = __decorate([
         core_1.Component({
             selector: 'lightbulb-form',
