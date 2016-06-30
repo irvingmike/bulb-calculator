@@ -1,31 +1,4 @@
 <div>
-  <section id="inc">
-    <div>
-      <h4>Incandescent</h4>
-      <p>18.4</p>
-      <p>14.42</p>
-    </div>
-  </section>
-  <section id="hal">
-    <div>
-      <h4>Halogen</h4>
-      <p>18.4</p>
-      <p>14.42</p>
-    </div>
-  </section>
-  <section id="cfl">
-    <div>
-      <h4>CFL</h4>
-      <p>18.4</p>
-      <p>14.42</p>
-    </div>
-  </section>
-  <section id="led">
-    <div>
-      <h4>LED</h4>
-      <p>18.4</p>
-      <p>14.42</p>
-    </div>
-  </section>
+  <lightbulb *ngFor="let bulb of bulbTypes"></lightbulb>
   <lightbulb-form></lightbulb-form>
 </div>

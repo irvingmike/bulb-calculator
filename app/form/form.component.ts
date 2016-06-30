@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: 'lightbulb-form',
-  templateUrl: 'app/LightbulbForm.html',
+  templateUrl: 'app/form/LightbulbForm.html',
 })
 
 export class FormComponent { }

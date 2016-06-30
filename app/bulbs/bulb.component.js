@@ -8,18 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var FormComponent = (function () {
-    function FormComponent() {
+var Lightbulb = (function () {
+    function Lightbulb(type, bulbInfo) {
+        this.type = type;
+        this.bulbInfo = bulbInfo;
     }
-    FormComponent = __decorate([
-        core_1.Component({
-            selector: 'lightbulb-form',
-            templateUrl: 'app/LightbulbForm.html',
+    Lightbulb.prototype.calculateWattage = function () {
+        return 42.0;
+    };
+    Lightbulb.prototype.calculateCost = function () {
+        return 19.72;
+    };
+    Lightbulb = __decorate([
+        Component({
+            selector: 'lightbulb',
+            template: "\n   <section id=\"{{ type }}\">\n    <div>\n      <h4>{{ bulbInfo.name }}</h4>\n      <p>{{ calculateWattage() }}</p>\n      <p>{{ calculateCost() }}</p>\n    </div>\n  </section>\n  "
         }), 
-        __metadata('design:paramtypes', [])
-    ], FormComponent);
-    return FormComponent;
+        __metadata('design:paramtypes', [String, Object])
+    ], Lightbulb);
+    return Lightbulb;
 }());
-exports.FormComponent = FormComponent;
-//# sourceMappingURL=form.component.js.map
+exports.Lightbulb = Lightbulb;
+//# sourceMappingURL=bulb.component.js.map
